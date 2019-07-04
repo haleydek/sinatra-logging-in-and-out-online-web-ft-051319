@@ -5,6 +5,8 @@ class ApplicationController < Sinatra::Base
     enable :sessions unless test?
     set :session_secret, "secret"
   end
+  
+  helper_method :current_user, :is_logged_in?
 
   get '/' do
     erb :index
